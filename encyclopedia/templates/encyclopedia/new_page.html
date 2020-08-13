@@ -1,0 +1,22 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block title %}
+{{ header }}
+{% endblock %}
+
+{% block body %}
+    {% if duplicated %}
+        <div class="alert alert-danger" role="alert">
+            Page with the same title already exist. Check it out and edit it if necessary.
+        </div>
+    {% endif %}
+    <form action="{% url 'new_page' %}" method="post">
+        {% csrf_token %}
+        <div class="text-fields">
+            {{ add_form }}
+        </div>
+        <div class="buttons">
+            <button name="save">Save</button> <a href="{% url 'index' %}" class="button">Cancel</a>
+        </div>
+    </form>
+{% endblock %}

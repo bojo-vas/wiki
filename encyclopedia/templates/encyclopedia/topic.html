@@ -5,6 +5,10 @@
 {% endblock %}
 
 {% block body %}
+    {% if error %}
+    {% else %}
+    <a href="{% url 'edit_page' %}">Edit</a>
+    {% endif %}
     {% for line in text %}
         {{ line|safe }}
     {% endfor %}
