@@ -7,7 +7,7 @@
 {% block body %}
     {% if error %}
     {% else %}
-    <a href="{% url 'edit_page' %}">Edit</a>
+    <a href="{% url 'edit_page' %}" class="button" id="edit_topic">Edit</a>
     {% endif %}
     {% for line in text %}
         {{ line|safe }}

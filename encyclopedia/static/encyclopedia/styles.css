@@ -12,13 +12,23 @@ h1 {
     padding-top: 20px;
 }
 
+p > .title {
+    width: 27em;
+    padding-left: 0.5em;
+    margin-left: 0.5em;
+    margin-top: 1em;
+
+}
+
 textarea {
-    height: 90vh;
-    width: 80%;
+    height: 50vh;
+    min-width: 30em;
+    max-width: 90%;
 }
 
 .main {
     padding: 10px;
+    padding-left: 2em;
 }
 
 .search {
@@ -31,8 +41,52 @@ textarea {
     background-color: #f0f0f0;
     height: 100vh;
     padding: 20px;
+    padding-left: 2em;
+    
+    
 }
 
 .sidebar h2 {
     margin-top: 5px;
+}
+
+.sidebar input {
+    width: 99%;
+}
+
+.buttons {
+    margin-left: 20em;
+    
+}
+
+
+.buttons a{
+    text-decoration: none;
+    color: black;
+    
+}
+
+button, .button {
+    text-decoration: none;
+    border: 2px solid grey;
+    border-radius: 0.5em 0.2em;
+    padding: 0.5em 1em;
+    background-color: whitesmoke;
+    font-weight: bold;
+    
+}
+
+button:hover, .button:hover {
+    background-color: #89D1FE;
+}
+
+
+button {
+    height: 2.6em;
+}
+
+#edit_topic {
+    float: right;
+    margin-right: 5%;
+    
 }

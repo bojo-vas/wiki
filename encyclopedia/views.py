@@ -90,15 +90,21 @@ def new_page(request):
 
             content = add_form.cleaned_data["content"]
             entries = util.list_entries()
+            print(entries)
+
+            if request.session["edit_mode"]:
+                print("Edit Mode ON")
 
             if title.lower() in [entry.lower() for entry in entries] and not request.session["edit_mode"]:
                 duplicated = True
+                print("Duplicated")
 
             else:
                 if not title.isupper():
                     title = title.title()
                 full_content = f"# {title}\n\n{content}"
                 util.save_entry(title, full_content)
+                request.session["edit_mode"] = False
                 return HttpResponseRedirect(reverse("topic", args=[title, ]))
 
     else:
