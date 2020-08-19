@@ -10,6 +10,7 @@ from . import util, forms
 
 def index(request):
     form = forms.SearchForm()
+    request.session["edit_mode"] = False
     context = {
         "header": "All Pages",
         "entries": util.list_entries(),
@@ -90,14 +91,9 @@ def new_page(request):
 
             content = add_form.cleaned_data["content"]
             entries = util.list_entries()
-            print(entries)
-
-            if request.session["edit_mode"]:
-                print("Edit Mode ON")
 
             if title.lower() in [entry.lower() for entry in entries] and not request.session["edit_mode"]:
                 duplicated = True
-                print("Duplicated")
 
             else:
                 if not title.isupper():
